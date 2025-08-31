@@ -1,0 +1,44 @@
+[project]
+name = "ai-processor"
+version = "0.1.0"
+description = "The email filter project's AI processor."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "aio-pika>=9.5.7",
+    "aiohttp>=3.12.15",
+    "nltk>=3.9.1",
+    "pydantic>=2.11.7",
+    "pydantic-settings>=2.10.1",
+    "pymongo>=4.14.1",
+    "spacy>=3.8.7",
+    "structlog>=25.4.0",
+    "unidecode>=1.4.0",
+]
+
+[project.scripts]
+ai-processor = "ai_processor:_main"
+
+[tool.ruff]
+line-length = 99
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "CPY001",
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D107",
+    "D203",
+    "D213",
+]
+
+[tool.uv]
+package = true
+
+[dependency-groups]
+dev = ["pip-audit>=2.9.0", "ruff>=0.12.11"]
