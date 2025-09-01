@@ -11,7 +11,7 @@ logger: BoundLogger = get_logger()
 class Mongo(Database):
     def __init__(self, uri: str) -> None:
         self._client = AsyncMongoClient(uri)
-        self._db = self._client["email_filter"]
+        self._db = self._client["ai_email_assist"]
 
     async def update_item(self, table_name: str, entry: BaseModel) -> None:
         logger.info("Updating item into MongoDB...", entry=entry)

@@ -14,7 +14,7 @@ logger: BoundLogger = get_logger()
 class Mongo(Database):
     def __init__(self, uri: str) -> None:
         self._client = AsyncMongoClient(uri)
-        self._db = self._client["email_filter"]
+        self._db = self._client["ai_email_assist"]
 
     async def get_page(self, page: int) -> list[dict[str, Any]]:
         logger.info("Getting page from MongoDB...", page=page, limit=100)

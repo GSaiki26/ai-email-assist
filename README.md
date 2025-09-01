@@ -1,5 +1,5 @@
-# Email Filter 📩
-Email filter is an AI email processing project, focused in automating email categorization and responses.
+# AI Email Assist 📩
+`ai_email_assist` is an AI email processing project, focused in automating email categorization and responses.
 
 ## How it works ⚙️
 The project is divided into 3 primary parts: The frontend, the backend and the AI processor.
