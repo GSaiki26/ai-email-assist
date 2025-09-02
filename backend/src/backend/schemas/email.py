@@ -1,4 +1,5 @@
 from enum import StrEnum
+from datetime import UTC, datetime
 
 from pydantic import BaseModel, Field
 
@@ -29,14 +30,20 @@ class EmailModel(BaseModel):
     category: EmailCategory | None
     quick_answer: str | None
 
+    created_at: datetime
+    updated_at: datetime
+
     @staticmethod
     def from_email_in(email: EmailIn) -> "EmailModel":
+        created_at = datetime.now(UTC)
         return EmailModel(
             status=EmailStatus.PENDING,
             title=email.title,
             raw_content=email.content,
             category=None,
             quick_answer=None,
+            created_at=created_at,
+            updated_at=created_at,
         )
 
 

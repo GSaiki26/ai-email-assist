@@ -1,3 +1,4 @@
+from datetime import datetime
 from enum import StrEnum
 
 from pydantic import BaseModel, Field
@@ -23,3 +24,6 @@ class EmailModel(BaseModel):
 
     category: EmailCategory | None = None
     quick_answer: str | None = None
+
+    created_at: datetime
+    updated_at: datetime

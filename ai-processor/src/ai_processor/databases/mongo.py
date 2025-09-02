@@ -1,3 +1,5 @@
+from datetime import UTC, datetime
+
 from bson import ObjectId
 from pydantic import BaseModel
 from pymongo import AsyncMongoClient
@@ -17,6 +19,7 @@ class Mongo(Database):
         logger.info("Updating item into MongoDB...", entry=entry)
 
         entry_dict = entry.model_dump(exclude_none=True)
+        entry_dict["updated_at"] = datetime.now(UTC)
         await self._db[table_name].update_one(
             {"_id": ObjectId(entry_dict.pop("_id", None))},
             {"$set": entry_dict},
